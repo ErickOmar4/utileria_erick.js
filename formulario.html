@@ -19,7 +19,7 @@
         <label for="fecha">Fecha de Nacimiento</label>
         <input type="date" id="fecha">
         <p id="mensajeEdad"></p>
-        <button type="button"  class="btn" onclick="abrirModal() "">obtener Edad</button>
+        <button type="button"  class="btn" onclick="abrirModal() ">obtener Edad</button>
         </div>
 
         <form class="formulario">
@@ -45,7 +45,7 @@
                 <div grupo="grupo-formulario">
                     <label for="correo">Correo Electrónico</label>
                     <input type="email" id="correo" placeholder="miCorreo@dominio.com">
-                    <p class="respuesta" id="emal-r">
+                    <p class="respuesta" id="emal-r"></p>
 
                     <label for="telefono">Teléfono</label>
                     <input type="tel" id="telefono" placeholder="+52 55 1234 5678">
@@ -58,10 +58,19 @@
         <a href="index.html">Ir al login</a>
 
             <!--Boton-->
-            <button type="submit" class="btn" onclick="validarFormulario()">
+            <button type="button" class="btn" id="validar_f" onclick="validarFormulario()">
                 validar 
             </button>
+
+
+            <div id="f_edad">
+        <h2 >Funciones agregadas</h2>
+        <label for="f_fecha">formato del n_telefono</label>
+        <input type="text" id="f_numero" disabled>
+        </div>
+
         </form>
+
     </div>
         
     <div id="modal" class="modal">

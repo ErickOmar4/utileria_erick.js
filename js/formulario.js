@@ -5,6 +5,8 @@ function validarFormulario(){
             let cp = document.getElementById("cp").value;
             let texto = document.getElementById("texto").value;
             let correo = document.getElementById("correo").value;
+            let tel = document.getElementById("telefono").value;
+            
 
             if(soloLetras(nombre)){
                 document.getElementById("mensajeNombre").textContent = "Nombre válido";
@@ -17,6 +19,11 @@ function validarFormulario(){
             if(validarLongitud(telefono,10)){
                 document.getElementById("mensajeTelefono").textContent = "Teléfono válido";
                 document.getElementById("mensajeTelefono").style.color = "green";
+                /*formatearTelefono(tel);
+                document.getElementById("f_numero").textContent = formatearTelefono(tel);*/
+
+                const inputTelefono = document.getElementById('f_numero');
+                inputTelefono.value = formatearTelefono(tel);
             }else{
                 document.getElementById("mensajeTelefono").textContent = "Teléfono inválido";
                 document.getElementById("mensajeTelefono").style.color = "red";
