@@ -38,7 +38,7 @@ Instalación y Configuración
 
 Para integrar las validaciones en tu proyecto, puedes copiar el archvo utileriajs que se encuentra en la carpeta js y hacer referencia del archivo en el pie de tu documento HTML antes del cierre de la etiqueta `</body>`:
 
-```html
+html
 <!-- 1. Cargar primero la librería de utilerías puras -->
 <script src="js/utileria.js"></script>
 
