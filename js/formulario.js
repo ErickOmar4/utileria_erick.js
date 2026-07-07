@@ -6,7 +6,40 @@ function validarFormulario(){
             let texto = document.getElementById("texto").value;
             let correo = document.getElementById("correo").value;
             let tel = document.getElementById("telefono").value;
-            
+            let numeroDecimal = document.getElementById("numeroDecimal").value;
+            let textoComas = document.getElementById("textoComas").value;   
+
+          
+        if (numeroDecimal === "") {
+        document.getElementById("mensajeHexadecimal").textContent = "Ingrese un número";
+        document.getElementById("mensajeHexadecimal").style.color = "red";
+            } else {
+        let resultadoHex = decimalAHexadecimal(numeroDecimal);
+        
+        if (resultadoHex !== null) {
+            document.getElementById("mensajeHexadecimal").textContent = "Hexadecimal: 0x" + resultadoHex;
+            document.getElementById("mensajeHexadecimal").style.color = "green";
+        } else {
+            document.getElementById("mensajeHexadecimal").textContent = "Número inválido (Debe ser menor a 10000 y positivo)";
+            document.getElementById("mensajeHexadecimal").style.color = "red";
+        }
+    }
+
+
+    // -- Separador por comas ---
+    if (textoComas === "") {
+        document.getElementById("mensajeComas").textContent = "Ingrese un texto para evaluar";
+        document.getElementById("mensajeComas").style.color = "red";
+    } else {
+        // Ejecutamos la función de utilería que limpia y retorna el texto modificado
+        let textoCorregido = corregirEspaciosComas(textoComas);
+        
+        // Colocamos el texto ya formateado de vuelta en la pantalla
+        document.getElementById("mensajeComas").textContent = "Resultado: " + textoCorregido;
+        document.getElementById("mensajeComas").style.color = "green";
+        
+        
+    }
 
             if(soloLetras(nombre)){
                 document.getElementById("mensajeNombre").textContent = "Nombre válido";

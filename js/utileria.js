@@ -98,3 +98,29 @@ function formatearTelefono(telefono) {
     
     return `+52 ${parte1} ${parte2} ${parte3}`;
 }
+
+
+/**
+ * Convierte un número decimal a hexadecimal string.
+ * Retorna el string hexadecimal o un mensaje si supera el límite.
+ */
+function decimalAHexadecimal(num) {
+    let n = parseInt(num, 10);
+    // Validamos si es un número válido y si cumple con el límite estricto (< 10000)
+    if (isNaN(n) || n >= 10000 || n < 0) {
+        return null; 
+    }
+    // .toString(16) convierte el número a base 16 (hexadecimal) y .toUpperCase() lo pone estético en mayúsculas
+    return n.toString(16).toUpperCase();
+}
+
+/**
+ * Recibe un texto y busca comas seguidas de una letra (sin espacio),
+ * agregando el espacio correspondiente.
+ * Ejemplo: "hola,mundo" -> "hola, mundo"
+ */
+function corregirEspaciosComas(texto) {
+    // Usamos una expresión regular: busca una coma seguida directamente de cualquier letra/número
+    // y la reemplaza por la misma coma, un espacio y el caracter que seguía.
+    return texto.replace(/,([a-zA-ZÁÉÍÓÚáéíóúÑñ0-9])/g, ', $1');
+}
