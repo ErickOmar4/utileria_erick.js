@@ -1,76 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Inicio de Sesion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Iniciar Sesion</h2>
-                
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="usuario">Correo Electronico</label>
-                        <input type="email" id="usuario" placeholder="ejemplo@dominio.com"
-                            onblur="if(validarCorreo(this.value)){document.getElementById('correo-error').style.display = 'none';}else{document.getElementById('correo-error').style.display = 'inline';}">
-                        <span class="emergent-label" id="correo-error">Correo invalido</span>
-                    </div>
+    <div class="contenedor-formulario">
+        <h1> Inicio de sesion</h1>
+        <form class="campos">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" placeholder="miCorro@dominio.com">
+            <p class="respuesta" id="emal-r"></p>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="Ej: 12345Eo$">
+            <p class="respuesta" id="contraseña-r"></p>
 
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" placeholder="Ingresa tu contraseña"
-                            onblur="if(validarPassword(this.value)){document.getElementById('password-error').style.display = 'none';}else{document.getElementById('password-error').style.display = 'inline';}">
-                        <span class="emergent-label" id="password-error">Contraseña invalida</span>
-                    </div>
+            <button type="button" id="validarF" class="btn" onclick="iniciarSesion()">Validar</button>
 
-                    <button type="button" class="btn btn-primary" onclick="iniciarSesion()">Entrar</button>
-                </form>
-
-                <div class="text-center mt-3">
-                    <a href="registro.html" class="link">¿No tienes cuenta? Registrate</a>
-                    <span class="mx-2">
-                </div>
-            </div>
-        </div>
+            <br><br>
+    <a href="formulario.html">Regresar al Formulario</a>
+        </form>
     </div>
-
+    
     <script src="js/utileria.js"></script>
-    <script>
-        const iniciarSesion = () => {
-            const correo = document.getElementById('usuario').value.trim();
-            const password = document.getElementById('password').value;
-
-            // Validar correo
-            if (!validarCorreo(correo)) {
-                mostrarModalError('Ingresa un correo valido');
-                return;
-            }
-
-            // Validar password
-            if (!validarPassword(password)) {
-                mostrarModalError('La contraseña debe tener: mayuscula, minuscula, numero, caracter especial y minimo 8 caracteres');
-                return;
-            }
-
-            // Verificar usuario
-            const usuario = obtenerUsuario();
-            
-            if (!usuario) {
-                mostrarModalError('No hay usuario registrado. Registrate primero');
-                return;
-            }
-
-            if (usuario.correo !== correo || usuario.password !== password) {
-                mostrarModalError('Correo o contraseña incorrectos');
-                return;
-            }
-
-            // Login exitoso
-            mostrarModalBienvenida(correo);
-        };
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>

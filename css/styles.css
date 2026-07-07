@@ -1,174 +1,135 @@
+/*variables css
+*/
+
+:root{
+    --color-primario: #15b149;
+    --color-secundario: #4CC9F0;
+    --color-fondo: #F8F9FA;
+    --color-texto: 2B2DD42;
+    --color-borde: #E9ECEF; 
+}
+
+/*2 RESET BASICO
+*/
+
 * {
-    margin: 0;
+    margin:0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    min-height: 100vh;
+/* 3 estilos generales
+*/
+
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+/* 4  contenedor principal*/
+.contenedor-formulario{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+h1{
+    font-size: 28px;
+    color: var(--color-primario);
+    margin-bottom: 30px;
+}
+
+.subtitulo{
+    color: #6c757D;
+    margin-bottom: 30px;
+}
+
+/* 6 grupos de formulario*/
+.grupo-formulario{
+    margin-bottom: 20px;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500px;
+    font-size: 14px;
+}
+
+/*  7 inputs y textarea*/
+input, textarea{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    transition: all 0.3s; /*animacion suabe*/
+}
+
+input:focus, textarea:focus{
+    border-color: var(--color-secundario);
+    outline: none;/* elimina el outiline predeterminado*/
+    box-shadow: 0 0 0 3px rgba(76,201,240,0.2);
+} 
+
+/* 8 disposicion en columnas */
+.grupo-doble{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px
+}
+
+/* 9 botón de envio*/
+.btn{
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-.login-container,
-.register-container {
-    width: 100%;
-    max-width: 400px;
-}
-
-.card {
-    background: white;
-    padding: 30px 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.card-title {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-    font-size: 14px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.emergent-label {
-    display: none;
-    color: red;
-    font-size: 13px;
-    margin-top: 4px;
-}
-
-input:focus + .emergent-label {
-    display: block;
 }
 
 .btn {
+    background-color: #2a0880;
+}
+
+#f_edad{
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgb(218, 243, 204);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+
+
+.modal{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    padding: 12px;
-    background: #667eea;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
 }
 
-.btn:hover {
-    background: #5a6fd6;
-}
-
-.link {
-    color: #667eea;
-    text-decoration: none;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
-.text-center {
+.contenidoModal{
+    background-color: rgb(164, 236, 221);
+    width: 300px;
+    margin: 120px auto;
+    padding: 20px;
     text-align: center;
-}
-
-.mt-3 {
-    margin-top: 15px;
-}
-
-.mx-2 {
-    margin: 0 5px;
-}
-
-@media (max-width: 768px) {
-    .card {
-        padding: 25px 20px;
-    }
-    
-    .card-title {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 15px;
-    }
-    
-    .card {
-        padding: 20px 15px;
-    }
-    
-    .card-title {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .form-group {
-        margin-bottom: 12px;
-    }
-    
-    .form-group label {
-        font-size: 13px;
-    }
-    
-    .form-group input {
-        padding: 8px 10px;
-        font-size: 13px;
-    }
-    
-    .btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    .emergent-label {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 360px) {
-    .card {
-        padding: 15px 12px;
-    }
-    
-    .card-title {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .form-group input {
-        padding: 7px 8px;
-        font-size: 12px;
-    }
-    
-    .btn {
-        padding: 8px;
-        font-size: 13px;
-    }
+    border-radius: 8px;
 }

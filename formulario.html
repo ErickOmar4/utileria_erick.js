@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sacale=1.0">
+    <title>Mi formulario libreria</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="contenedor-formulario">
+        
+        <h1>Formulario de validaciones-Librería</h1>
+
+        <div id="f_edad">
+        <p class="subtitulo">calcular edad</p>
+        
+
+
+        <label for="fecha">Fecha de Nacimiento</label>
+        <input type="date" id="fecha">
+        <p id="mensajeEdad"></p>
+        <button type="button"  class="btn" onclick="abrirModal() "">obtener Edad</button>
+        </div>
+
+        <form class="formulario">
+            <!--Grupo 1: Datos básicos-->
+            <div class="grupo-formulario">
+                
+
+               <label for="nombre">Nombre completo</label> 
+               <input type="text" id="nombre" placeholder="Ej: Erick Omar" required>
+               <p id="mensajeNombre"></p>
+
+               <label for="cp">Código Postal</label>
+               <input type="text" id="cp" placeholder="68276">
+               <p id="mensajeCP"></p>
+
+               <label for="texto">Texto</label>
+               <input type="text" id="texto">
+               <p id="mensajeTexto"></p>
+            </div>
+
+            <!--2 Grupo: Email y telefono-->
+            <div class="grupo-doble">
+                <div grupo="grupo-formulario">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" placeholder="miCorreo@dominio.com">
+                    <p class="respuesta" id="emal-r">
+
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" placeholder="+52 55 1234 5678">
+                    <p id="mensajeTelefono"></p>
+                </div>
+            </div>
+            
+            
+    <hr>
+        <a href="index.html">Ir al login</a>
+
+            <!--Boton-->
+            <button type="submit" class="btn" onclick="validarFormulario()">
+                validar 
+            </button>
+        </form>
+    </div>
+        
+    <div id="modal" class="modal">
+            <div class="contenidoModal">
+                <h3>Edad calculada</h3>
+                <p id="edadCalculada"></p>
+                <button type="button" class="btn" onclick="cerrarModal()">Cerrar</button>
+            </div>
+        </div>
+
+    <script src="js/formulario.js"></script>
+    <script src="js/utileria.js"></script>
+      
+</body>
+</html>
